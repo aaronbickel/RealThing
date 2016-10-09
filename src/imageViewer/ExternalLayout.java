@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -174,5 +175,29 @@ public class ExternalLayout extends JPanel /*implements TreeSelectionListener*/ 
 		System.out.println("action!");
 		JButton buttonPressed = (JButton) (e.getSource()); //this just gets what button was pressed
 		System.out.println(buttonPressed.getName()); //name of that button (filename)
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		System.out.println("unimplemented!");
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("unimplemented!");
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("unimplemented!");
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("unimplemented!");
 	}	
 }
