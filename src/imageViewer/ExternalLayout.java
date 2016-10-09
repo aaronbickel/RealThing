@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +29,7 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 
-public class ExternalLayout extends JPanel /*implements TreeSelectionListener*/ implements ActionListener{
+public class ExternalLayout extends JPanel /*implements TreeSelectionListener*/ implements /*ActionListener,*/ MouseListener{
 
 	//main panel
 	JPanel panelmain;
@@ -131,8 +132,9 @@ public class ExternalLayout extends JPanel /*implements TreeSelectionListener*/ 
 			try {
 				BufferedImage img = ImageIO.read(new File (item));
 				JButton imgbutton = new JButton(new ImageIcon(img.getScaledInstance(200, -1, Image.SCALE_FAST)));
-				imgbutton.addActionListener(this);
-				imgbutton.setName(item);
+				//imgbutton.addActionListener(this);
+				imgbutton.addMouseListener(this);
+				imgbutton.setName(item); //button name set to filename
 				panelimage.add(imgbutton);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -167,9 +169,10 @@ public class ExternalLayout extends JPanel /*implements TreeSelectionListener*/ 
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	/*public void actionPerformed(ActionEvent e) {*/
+	public void mouseClicked(MouseEvent e) {
 		System.out.println("action!");
-		JButton buttonPressed = (JButton) (e.getSource());
-		System.out.println(buttonPressed.getName());
+		JButton buttonPressed = (JButton) (e.getSource()); //this just gets what button was pressed
+		System.out.println(buttonPressed.getName()); //name of that button (filename)
 	}	
 }
